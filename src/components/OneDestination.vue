@@ -1,6 +1,6 @@
 <template>
     <div class="one-destination-container">
-            <img v-bind:src="destination.images.png" alt="">
+            <img v-bind:src="destination.images.png" v-bind:alt="destination.name">
         <div class="details-container">
             <h2>{{destination.name}}</h2>
             <p class="description">{{destination.description}}</p>
@@ -100,17 +100,22 @@
                 .travel-name {
                     font-size: 2.3rem;
                     font-weight: 100;
-
+                    @media (max-width: 800px) {
+                        font-size: 2rem;
                 }
-                @media (max-width: 800px) {
-                    flex-direction: column;
                 }
+                // @media (max-width: 800px) {
+                //     flex-direction: column;
+                // }
                 .distance-number,
                 .travel-number {
                     font-size: 3rem;
                     color: white;
                     font-weight: 400;
                     padding: 0 0 2rem 0;
+                    @media (max-width: 800px) {
+                        font-size: 2.5rem;
+                }
 
                 }
                 p {

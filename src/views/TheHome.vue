@@ -37,7 +37,8 @@
       justify-content: space-around;
       align-items: center;
       flex-wrap: wrap;
-      height: 100vh;
+      // padding: 4rem;
+      padding:0 2rem 5rem 2rem;
       @media  (max-width: 1050px) {
         flex-direction: column;
         align-items: center;
@@ -53,20 +54,20 @@
           top: 6rem;
           padding: 0.5rem;
         }
-        @media  (max-width: 550px) {
-          top: 6rem;
-        }
+       
       .title {
-        font-size: 3rem;
+        font-size: 3.5rem !important;;
         font-weight: 500 !important;
-        @media  (max-width: 550px) {
+        text-align: left;
+        @media  (max-width: 10500px) {
             font-size:2.5rem;
+            text-align: center;
       }
       }
       h1 {
         margin: 2.5rem 0rem;
         font-size: 15rem;
-        @media  (max-width: 550px) {
+        @media  (max-width: 1050px) {
         font-size: 10rem; 
     } 
       }
@@ -75,29 +76,33 @@
         font-size: 2.6rem;
         font-weight: 100 !important;
         max-width: 47rem;
+        text-align: left;
+        @media  (max-width: 10500px) {
+            text-align: center;
+      }
       }
     }
     .circles-container {
       position: relative;
       top: 15rem;
-      width: 240px;
-      height: 240px;
       text-align: center;
       cursor: pointer;
-      @media  (max-width: 1050px) {
-        top: 0rem;
-      }
+      width: 250px;
+      height: 250px;
+    @media  (max-width: 1050px) {
+      width: 190px;
+      height: 190px;
+      top: 0rem;
+
+     }
       @media  (max-width: 550px) {
-        width: 200px;
-        height: 200px;
+        top: 5rem;
       }
     }
   .circle {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 240px;
-    height: 240px;
     background-color: white;
     border-radius: 50%;
     position: absolute;
@@ -106,18 +111,17 @@
     transform: translate(-50%, -50%);
     z-index: 2;
     transition: transform 0.3s ease-in-out;
-    @media  (max-width: 550px) {
-      width: 200px;
-      height: 200px;
-     }
+    width: 100%;
+    height: 100%;
     p {
       font-size: 3.5rem;
       color: #0B0D17;
     }
   }
   .circle-behind {
-    width: 375px;
-    height: 375px;
+    display: block;
+    width: 400px;
+    height: 400px;
     backdrop-filter: blur(2px);
     background-color: rgba(255, 255, 255, 0.08);
     border-radius: 50%;
@@ -128,9 +132,10 @@
     z-index: 1;
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
-    @media  (max-width: 550px) {
+    @media  (max-width: 1050px) {
       width: 300px;
       height: 300px;
+     
      }
   }
   .circles-container:hover .circle-behind {

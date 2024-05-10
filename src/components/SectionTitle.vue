@@ -18,18 +18,16 @@
 
 .title {
         z-index: 1;
-        display: flex;
         position: absolute;
         left: 20rem;
         top: 18rem;
-        width: 100vw;
         display: flex;
-     
         @media (max-width: 1150px) {
             left: 8rem;
             top: 11rem;
         }
         @media (max-width: 800px) {
+            width: 100vw;
             justify-content: center;
             align-items: center;
             left: 0;

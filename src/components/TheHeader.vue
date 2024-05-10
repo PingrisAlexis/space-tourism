@@ -108,6 +108,9 @@ const toggleMenu = () => {
                         width: 5rem;
                         top: 1.5rem
                   }
+                  @media  (max-width: 1050px) {
+                        left: 5rem;
+                  }
             }
             .custom-router-link.router-link-exact-active {
                   border-bottom: none !important;
@@ -145,11 +148,10 @@ const toggleMenu = () => {
                   }
                   li {
                         text-decoration: none;
-                        
-                        // @media  (max-width: 800px) {
-                        //       margin: 2rem 0rem ;
-                        //       height: 8rem;
-                        // }
+                        @media  (max-width: 800px) {
+                              margin: 2rem 0rem;
+                              height: 8rem;
+                        }
                         :hover {
                               border-bottom: 0.3rem solid var(--color-hover);
                               padding-bottom: 2.7rem;
@@ -169,7 +171,7 @@ const toggleMenu = () => {
                                height: 6rem;
                                @media  (max-width: 1050px) {
                                     font-size: 2rem;
-                        }
+                              }
                         }
                   }
             }

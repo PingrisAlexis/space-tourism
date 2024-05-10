@@ -34,15 +34,8 @@
         </div>
       </div>
         <OneDestination v-if="currentDestination" 
-          :destination="currentDestination" 
-          :name="currentDestination.name"  
-          :description="currentDestination.description" 
-          :image="currentDestination.images" 
-          :distance="currentDestination.distance" 
-          :travel="currentDestination.travel"
+          :destination="currentDestination"
         />
-     
-    
     <div class="background"></div>
   </main>
 </template>
@@ -81,6 +74,9 @@
             color: var(--color-hover);
             text-transform: uppercase;
             border: none;
+            @media (max-width: 800px) {
+              font-size: 1.8rem;
+            }
             &.active {
               color: white;
               border-bottom: 0.3rem solid white;

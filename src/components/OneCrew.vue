@@ -5,6 +5,16 @@
 </template>
 <script setup>
 
+import { defineProps } from 'vue'
+import { ref, reactive, computed } from 'vue'
+const props = defineProps({
+crew: Object
+})
+
+// const test =  
+computed(() => {
+      return console.log(crew)
+    });
 </script>
 
 
