@@ -1,55 +1,87 @@
-<script setup>
-    import OneCrew from '../components/OneCrew.vue'
-    import SectionTitle from '../components/SectionTitle.vue'
-    import { data } from '../data.js';
-    import { ref, reactive, computed } from 'vue'
-
-    const crew = reactive(data.crew);
-  console.log(crew)
-    const currentTab = ref(0);
-
-    const currentCrew = computed(() => {
-      return crew[currentTab.value];
-    });
-</script>
-
 <template>
   <main>
-    <OneCrew />
-
     <SectionTitle 
-        :section="{ 
-          number: '02', 
-          description: 'MEET YOUR CREW'}" 
-      />
-         <div class="tabs">
-          <button 
-            v-for="(destination, index) in crew" 
-            :key="index"
-            @click="currentTab = index"
-            :class="{ active: currentTab === index }"
-          >
-            {{ destination.name }}
-          </button>
-        </div>
-      <OneCrew v-if="currentCrew" 
-          :crew="currentCrew"
-        />
-
-    <div class="background"></div>
+      :section="{ 
+      number: '02', 
+      description: 'MEET YOUR CREW'}" 
+    />  
+    <OneMember v-if="currentMember" class="member"
+      :member="currentMember"
+    />
+    <div class="tabs">
+      <div class="button"
+        v-for="(member, index) in crew" 
+        :key="index"
+        @click="currentTab = index"
+        :class="{ active: currentTab === index }"
+        >
+      </div>
+    </div>
   </main>
-
+  <div class="background"></div>
 </template>
 
+<script setup lang="ts">
+  import { Member } from '../types'
+  import OneMember from '../components/OneMember.vue'
+  import SectionTitle from '../components/SectionTitle.vue'
+  import { data } from '../data.js';
+  import { ref, reactive, computed } from 'vue'
 
+  const crew: Member[] = reactive(data.crew);
+  const currentTab = ref(0);
 
+  const currentMember = computed<Member>(() => {
+    return crew[currentTab.value]
+  })
+</script>
 
-<style scoped>
+<style scoped lang="scss">
+@import url('@/assets/main.css');
   .background {
     background-image:url('../assets/crew/background-crew-desktop.jpg') !important;
+    @media (max-width: 1150px) {
+      background-image:url('../assets/crew/background-crew-tablet.jpg') !important;
+    }
+    @media (max-width: 550px) {
+      background-image:url('../assets/crew/background-crew-mobile.jpg') !important;
+    }
   }
-
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    overflow:hidden;
+  }
   .tabs {
-    z-index: 2 !important;
+    position: relative;
+    bottom: 8rem;
+    left: 20rem;
+    z-index: 2;
+    @media (max-width: 1150px) {
+      bottom: 45rem;
+      left: 0rem;
+      align-self: center;
+    }
+    @media (max-width: 800px) {
+      bottom: 33rem;
+    }
+    .button {
+      margin: 0.8rem;
+      height: 13px;
+      width: 13px;
+      background-color: #464850;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color .8s ease;
+      &.active {
+        background-color: var(--color-first);
+      }
+      &:hover {
+        background-color: #85868b;
+      }
+    }
   }
 </style>

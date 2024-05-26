@@ -1,145 +1,174 @@
 <template>
-  <div class="background"></div>
   <main class="home-container">
-      <div class="presentation">
-        <p class="title">SO, YOU WANT TO TRAVEL TO</p>
-        <h1>SPACE</h1>  
-        <p class="details">Let's face it; if you want to go space, you might as well
+    <div class="presentation">
+      <p class="title">SO, YOU WANT TO TRAVEL TO</p>
+      <h1>SPACE</h1>  
+      <p class="details">Let's face it; if you want to go space, you might as well
         genuinely go to outer space and not hover kind of on the  
         edge of it. Well sit back, and relax because we'll give you a
         truly out of this world experience!
-        </p>
+      </p>
+    </div>
+    <div class="circles-container">
+      <router-link to="/destination">
+      <div class="circle">
+        <p>EXPLORE</p>
       </div>
-      <div class="circles-container">
-        <router-link to="/destination">
-        <div class="circle">
-            <p>EXPLORE</p>
-        </div>
       </router-link>
         <div class="circle-behind"></div>
-      </div>
+    </div>
   </main>
+  <div class="background"></div>
 </template>
 
 <style scoped lang="scss">
- @import url('@/assets/main.css');
-    .background {
-      background-image:url('../assets/home/background-home-desktop.jpg') !important;
-      @media  (max-width: 1050px) {
-        background-image:url('../assets/home/background-home-tablet.jpg') !important;
-      }
-      @media  (max-width: 550px) {
-        background-image:url('../assets/home/background-home-mobile.jpg') !important;
-      }
+  @import url('@/assets/main.css');
+
+  .background {
+    background-image:url('../assets/home/background-home-desktop.jpg');
+    @media (max-width: 1150px) {
+        background-image:url('../assets/home/background-home-tablet.jpg');
     }
-     .home-container {
-      display: flex;
-      justify-content: space-around;
+    @media (max-width: 550px) {
+      background-image:url('../assets/home/background-home-mobile.jpg');
+    }
+  }
+  .home-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding:2rem 2rem 5rem 2rem;
+    @media (max-width: 1050px) {
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
-      // padding: 4rem;
-      padding:0 2rem 5rem 2rem;
-      @media  (max-width: 1050px) {
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-     }
-        .presentation {
-        text-wrap: wrap;
-        z-index: 1;
-        text-align: center;
-        position: relative;
-        top: 15rem;
-        @media  (max-width: 1050px) {
-          top: 6rem;
-          padding: 0.5rem;
-        }
-       
+      justify-content: space-around;
+    }
+    @media (max-width: 550px) {
+      padding:2rem;
+    }
+    .presentation {
+      text-wrap: wrap;
+      z-index: 1;
+      text-align: center;
+      position: relative;
+      top: 15rem;
+      @media (max-width: 1050px) {
+        top: 6rem;
+        padding: 0.5rem;
+      }  
       .title {
-        font-size: 3.5rem !important;;
-        font-weight: 500 !important;
+        font-size: 3.5rem;
+        font-weight: 200 !important;
         text-align: left;
-        @media  (max-width: 10500px) {
-            font-size:2.5rem;
-            text-align: center;
-      }
+        color: var(--color-sec);
+        font-weight: 300;
+        letter-spacing: 2px;
+        @media (max-width: 1050px) {
+          font-size:2.5rem;
+          text-align: center;
+        }
       }
       h1 {
         margin: 2.5rem 0rem;
         font-size: 15rem;
-        @media  (max-width: 1050px) {
-        font-size: 10rem; 
-    } 
+        @media (max-width: 1050px) {
+          font-size: 10rem; 
+        } 
       }
       .details {
         text-wrap: wrap;
-        font-size: 2.6rem;
+        font-size: 2.3rem;
         font-weight: 100 !important;
         max-width: 47rem;
         text-align: left;
-        @media  (max-width: 10500px) {
-            text-align: center;
-      }
+        color: var(--color-sec);
+        @media (max-width: 1050px) {
+          text-align: center;
+        }
       }
     }
     .circles-container {
       position: relative;
       top: 15rem;
       text-align: center;
-      cursor: pointer;
       width: 250px;
       height: 250px;
-    @media  (max-width: 1050px) {
-      width: 190px;
-      height: 190px;
-      top: 0rem;
-
-     }
-      @media  (max-width: 550px) {
-        top: 5rem;
+      border-radius: 50%;
+      z-index: 0;
+      @media (max-width: 1050px) {
+        width: 180px;
+        height: 180px;
+        top: 0rem;
+      }
+      @media (max-width: 550px) {
+        width: 150px;
+        height: 150px;
       }
     }
   .circle {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--color-first);
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-    transition: transform 0.3s ease-in-out;
+    z-index: 3;
     width: 100%;
     height: 100%;
     p {
       font-size: 3.5rem;
       color: #0B0D17;
+      @media (max-width: 550px) {
+        font-size: 2.5rem;
+      }
     }
   }
   .circle-behind {
     display: block;
     width: 400px;
     height: 400px;
-    backdrop-filter: blur(2px);
-    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     z-index: 1;
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
-    @media  (max-width: 1050px) {
+    @media (max-width: 1050px) {
       width: 300px;
       height: 300px;
-     
-     }
+    }
+    @media (max-width: 550px) {
+      width: 240px;
+      height: 240px;
+    }
   }
-  .circles-container:hover .circle-behind {
-    opacity: 1;
+    .circles-container:hover:not(:hover .circle) .circle-behind {
+      animation: radar-wave 1.8s ease-out infinite;
+      opacity: 1;
+    }
+    .circles-container:not( .circle) .circle-behind {
+      @media (max-width: 1050px) {
+        animation: radar-wave 1.8s ease-out infinite;
+        opacity: 1;
+      }
+    }
   }
-}
+  @keyframes radar-wave {
+    0% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.3);
+      opacity: 0;
+    }
+  }
 </style>
