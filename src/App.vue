@@ -3,10 +3,6 @@
 </script>
 
 <template>
-    <TheHeader/>
-    <router-view/> 
+    <TheHeader />
+    <router-view /> 
 </template>
-
-<style scoped>
-
-</style>
