@@ -5,7 +5,6 @@ import TheDestinations from '@/views/TheDestinations.vue'
 import TheTechnologies from '@/views/TheTechnologies.vue'
 
 const routes = [
-    
     {
         path: '/',
         name: 'Home',
@@ -25,8 +24,12 @@ const routes = [
         path: '/technologie',
         name: 'Technologie',
         component: TheTechnologies
-    } 
+    }
 ]
 
-const router = createRouter({   linkActiveClass: 'border-indigo-500',history: createWebHistory(), routes })
+const router = createRouter({ 
+    history: createWebHistory(), 
+    routes 
+})
+
 export default router
