@@ -3,35 +3,33 @@
             <hr>
                   <router-link to="/"  class="custom-router-link">
                         <img class="logo"src="../assets/shared/logo.svg"/>
-
-                              </router-link>
-            <div class="menu-toggle" @click="toggleMenu">
-                  <img  v-if="!isMenuOpen" src="@/assets/shared/icon-hamburger.svg"></img>
-                  <img  v-else src="@/assets/shared/icon-close.svg"></img>
-            </div>
+                  </router-link>
             <nav>
-                  <ul :class="{ 'open': isMenuOpen }">
-                        <li>
-                              <router-link to="/">
-                                    <span>00</span>&nbsp;&nbsp;HOME&nbsp;&nbsp;&nbsp;
+                  <img class="menu-toggle open-menu" @click="toggleMenu" src="@/assets/shared/icon-hamburger.svg"></img>
+                  <ul :class="menuClass">
+                  <img  class="menu-toggle close-menu" v-if="isMenuOpen"  @click="toggleMenu" src="@/assets/shared/icon-close.svg"></img>
+                        <li >
+                              <router-link to="/" class="hover-border">
+                                    <span>&nbsp;00&nbsp;&nbsp;</span>
+                                    HOME&nbsp;
                               </router-link>
                         </li>
                         <li>
-                              <router-link to="/destination">
-                                    <span>01</span>
-                                    &nbsp;&nbsp;DESTINATION&nbsp;&nbsp;&nbsp;
+                              <router-link to="/destination"  class="hover-border">
+                                    <span>&nbsp;01&nbsp;&nbsp;</span>
+                                    DESTINATION&nbsp;
                               </router-link>
                         </li>
                         <li>
-                              <router-link to="/crew">
-                                    <span>02</span>
-                                    &nbsp;&nbsp;CREW&nbsp;&nbsp;&nbsp;
+                              <router-link to="/crew" class="hover-border">
+                                    <span>&nbsp;02&nbsp;&nbsp;</span>
+                                    CREW&nbsp;
                               </router-link>
                         </li>
                         <li>
-                              <router-link to="/technologie">
-                                    <span>03</span>
-                                    &nbsp;&nbsp;TECHNOLOGY&nbsp;&nbsp;&nbsp;
+                              <router-link to="/technologie" class="hover-border">
+                                    <span>&nbsp;03&nbsp;&nbsp;</span>
+                                    TECHNOLOGY&nbsp;
                               </router-link>
                         </li>
                   </ul>
@@ -39,47 +37,37 @@
       </header>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+      import { ref, computed } from 'vue'
 
-const isMenuOpen = ref(false)
+      const isMenuOpen = ref(false)
+      const isClosing = ref(false)
 
-const toggleMenu = () => {
-      isMenuOpen.value = !isMenuOpen.value
-}
+      const menuClass = computed(() => {
+            if (isClosing.value) {
+            return 'menu-disappear'
+            } else if (isMenuOpen.value) {
+            return 'menu-appear'
+            } else {
+            return ''
+            }
+      })
 
+      const toggleMenu = computed(() => {
+            if (isMenuOpen.value) {
+                  isClosing.value = true
+                  setTimeout(() => {
+                  isMenuOpen.value = false
+                  isClosing.value = false
+                  }, 400);
+                  } else {
+                  isMenuOpen.value = true
+            }
+      })
 </script>
 
 <style scoped lang="scss">
       @import url('@/assets/main.css');
-      .menu-toggle {
-            display: none;
-            @media  (max-width: 800px) {
-                  display: block;
-                  position: absolute;
-                  right: 12rem;
-                  cursor: pointer;
-                  z-index: 2;
-            }
-            img {
-                  width:5rem;
-                  position: relative;
-                  top: 1.5rem;
-                  left: 8rem;
-            }
-      }
-      .open {
-            @media  (max-width: 800px) {
-                  display: block;
-            }
-      }
-      .router-link-exact-active {
-            border-bottom: 0.3rem solid white ;
-            padding-bottom: 2.7rem;
-            @media  (max-width: 1050px) {
-                  padding-bottom: 1.6rem;
-            }
-      }
       header {
             display: flex;
             background-color: transparent;
@@ -111,13 +99,8 @@ const toggleMenu = () => {
                   @media  (max-width: 1050px) {
                         left: 5rem;
                   }
-            }
-            .custom-router-link.router-link-exact-active {
-                  border-bottom: none !important;
-                  padding-bottom: none !important;
-            }
+            }  
             ul {
-                  justify-content: flex-end;
                   display: flex;
                   backdrop-filter: blur(25px);
                   background-color: rgba(255, 255, 255, 0.08);
@@ -130,50 +113,96 @@ const toggleMenu = () => {
                   padding-right: 15rem;
                   @media  (max-width: 1300px) {
                         padding-right: 0rem;
-
-                        }
+                  }
                   @media  (max-width: 1050px) {
-                        padding-right: 0rem;
                         height: 8rem;
-
-                        }
+                  }
                   @media  (max-width: 800px) {
                         padding-top: 10rem;
                         display: none;
                         flex-direction: column;
                         justify-content: center !important;
                         align-items: space-around !important;
-                        width: 37rem;
+                        width: 25rem;
                         height: 100vh;
                   }
-                  li {
-                        text-decoration: none;
+                  li {  
                         @media  (max-width: 800px) {
-                              margin: 2rem 0rem;
-                              height: 8rem;
+                              padding: 1rem 0rem;
                         }
-                        :hover {
-                              border-bottom: 0.3rem solid var(--color-hover);
-                              padding-bottom: 2.7rem;
-                              @media  (max-width: 1050px) {
-                                    padding-bottom: 1.6rem;
-                              } 
-                        }
-                        span {
-                              font-weight: 600;
-                              @media (min-width:800px) and  (max-width: 1050px) {
-                                    display: none;
-                              }
+                        .hover-border::before {
+                              bottom: -1.4rem;
                         }
                         a {
                               font-size: 2.5rem;
                               font-weight: 100;
-                               height: 6rem;
-                               @media  (max-width: 1050px) {
+                              height: 6rem;
+                                    @media  (max-width: 1050px) {
                                     font-size: 2rem;
                               }
-                        }
+                              span {
+                                    font-weight: 600;
+                                    @media (min-width:800px) and  (max-width: 1050px) {
+                                          display: none;
+                                    }
+                              }     
+                        }   
                   }
             }
       }
+      .menu-toggle {
+            display: none;
+            width:2.5rem;
+            @media  (max-width: 800px) {
+                  display: block;
+                  right: 12rem;
+                  cursor: pointer;
+                  z-index: 2;
+            }
+      }
+      .open-menu {
+            position: absolute;
+            z-index: 0;
+      }
+      .close-menu {
+            position: fixed;
+      }
+      .open-menu,
+      .close-menu {
+            top: 2.5rem;
+            right: 5rem;
+      }
+      .menu-appear,
+      .menu-disappear {
+            @media  (max-width: 800px) {  
+                  display: block;
+                  position: fixed;
+                  top: 0;
+                  right: 0;
+                  width: 25rem;
+                  height: 100%;
+            }  
+      }  
+      .menu-appear {
+            @media  (max-width: 800px) {
+                  animation: menu_appear .6s forwards;
+            }
+      }
+      .menu-disappear {
+            @media  (max-width: 800px) {
+                  animation: menu_disappear .6s forwards;
+            }
+      }
+      @keyframes menu_appear {
+      from {
+      transform: translateX(100%);
+      } to {
+      transform: translateX(0%);
+      }}
+      @keyframes menu_disappear {
+      from {
+      transform: translateX(0%);
+      }to {
+      transform: translateX(100%);
+      }}
 </style>

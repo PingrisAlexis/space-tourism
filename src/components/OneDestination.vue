@@ -1,36 +1,31 @@
 <template>
     <div class="one-destination-container">
             <img v-bind:src="destination.images.png" v-bind:alt="destination.name">
-        <div class="details-container">
-            <h2>{{destination.name}}</h2>
-            <p class="description">{{destination.description}}</p>
+        <section class="details-container">
+            <h2>{{ destination.name }}</h2>
+            <p class="description">{{ destination.description }}</p>
             <div class="information">
                <div>
-                    <p class="distance-name">AVG. DISTANCE</p>
-                    <p class="distance-number">{{destination.distance}}</p>
+                    <p class="travel-title">AVG. DISTANCE</p>
+                    <p class="travel-value">{{ destination.distance }}</p>
                 </div>
                 <div>
-                    <p class="travel-name">EST. TRAVEL TIME</p>
-                    <p class="travel-number">{{destination.travel}}</p>
+                    <p class="travel-title">EST. TRAVEL TIME</p>
+                    <p class="travel-value">{{ destination.travel }}</p>
                 </div>  
             </div>
-        </div>
+        </section>
     </div>
 </template>
 
-<script setup>
-
- import { defineProps } from 'vue'
-
-  const props = defineProps({
-  destination: Object
-})
-
+<script setup lang="ts">
+  import { Destination } from '../types'
+  
+  const { destination } = defineProps<{ destination: Destination }>()
 </script>
-   
 
 <style scoped lang="scss">
- @import url('@/assets/main.css');
+    @import url('@/assets/main.css');
     .one-destination-container {
         display: flex;
         z-index: 1;
@@ -42,9 +37,8 @@
             flex-direction: column;
             align-items: center;
             top: 5rem;
-          }
+        }
         img {
-            // width: 50rem;
             position: relative;
             right: 12rem;
             bottom: 2rem;
@@ -54,76 +48,68 @@
                 bottom: 8rem;
             }
             @media (max-width: 1150px) {
-                    width: 25rem;
+                width: 25rem;
             }
-        
         }
         .details-container {
             position: relative;
             left: 11rem;
             width: 40rem;
             @media (max-width: 1150px) {
-                        font-size: 5rem;
-                        left: 0rem;
-                }
-                @media (max-width: 800px) {
-                    width: 30rem;
-                }
+                font-size: 5rem;
+                left: 0rem;
+            }
+            @media (max-width: 800px) {
+                width: 30rem;
+            }
             h2 {
                 padding: 4rem 0rem;
                 position: relative;
                 right: 1rem;
                 font-size: 11rem;
                 text-transform: uppercase;
-                    @media (max-width: 1150px) {
-                        font-size: 5rem;
-                        text-align: center;
-                    }
-                    @media (max-width: 800px) {
-                        padding: 1rem 0rem;
-            }
+                @media (max-width: 1150px) {
+                    font-size: 5rem;
+                    text-align: center;
+                }
+                @media (max-width: 800px) {
+                    padding: 1rem 0rem;
+                }
             } 
-            
             .description {
                 font-size: 2.3rem;
                 font-weight: 100;
+                color: var(--color-sec);
                 @media (max-width: 1150px) {
-                        font-size: 1.8rem;
+                    font-size: 2rem;
                 }
             }
             .information {
                 display: flex;
                 justify-content: space-between;
                 padding-top: 3rem;
-
-                .distance-name,
-                .travel-name {
-                    font-size: 2.3rem;
+                .distance-title,
+                .travel-title {
+                    font-size: 2rem;
                     font-weight: 100;
-                    @media (max-width: 800px) {
-                        font-size: 2rem;
+                    color: var(--color-sec);
+                    @media (max-width: 1150px) {
+                        font-size: 1.6rem;
+                    }
                 }
-                }
-                // @media (max-width: 800px) {
-                //     flex-direction: column;
-                // }
-                .distance-number,
-                .travel-number {
+                .distance-value,
+                .travel-value {
                     font-size: 3rem;
-                    color: white;
+                    color: var(--color-first);
                     font-weight: 400;
                     padding: 0 0 2rem 0;
-                    @media (max-width: 800px) {
-                        font-size: 2.5rem;
-                }
-
+                     @media (max-width: 1150px) {
+                        font-size: 2rem;
+                    }
                 }
                 p {
                     text-align: center;
                     text-transform: uppercase;
-                    @media (max-width: 1150px) {
-                        font-size: 1.6rem;
-                }
                 }
             }
         }
