@@ -28,3 +28,6 @@ coverage
 *.sw?
 .vscode
 *.tsbuildinfo
+
+# Local Netlify folder
+.netlify
