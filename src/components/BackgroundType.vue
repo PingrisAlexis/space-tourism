@@ -1,5 +1,5 @@
 <template>
-  <div  :class="backgroundClass" class="background-container"></div>
+  <div :class="backgroundClass" class="background-container"></div>
 </template>
 
 <script setup lang="ts">
@@ -19,7 +19,7 @@
       case '/technology':
         return 'technology';
       default:
-        return 'Unknown';
+        return 'black-background';
     }
   })
 </script>
@@ -33,7 +33,8 @@
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: 0
+    z-index: 0;
+    background-color: #000;
   }
   .home {
     background-image:url('@/assets/home/background-home-desktop.jpg');
@@ -45,21 +46,21 @@
     }
   }
   .destination {
-    background-image:url('@/assets/destination/background-destination-desktop.jpg') !important;
-    @media  (max-width: 1150px) {
-      background-image:url('@/assets/destination/background-destination-tablet.jpg') !important;
+    background-image:url('@/assets/destination/background-destination-desktop.jpg');
+    @media (max-width: 1150px) {
+      background-image:url('@/assets/destination/background-destination-tablet.jpg');
     }
-    @media  (max-width: 550px) {
-      background-image:url('@/assets/destination/background-destination-mobile.jpg') !important;
+    @media (max-width: 550px) {
+      background-image:url('@/assets/destination/background-destination-mobile.jpg');
     }
   }
   .crew {
-    background-image:url('@/assets/crew/background-crew-desktop.jpg') !important;
+    background-image:url('@/assets/crew/background-crew-desktop.jpg');
     @media (max-width: 1150px) {
-      background-image:url('@/assets/crew/background-crew-tablet.jpg') !important;
+      background-image:url('@/assets/crew/background-crew-tablet.jpg');
     }
     @media (max-width: 550px) {
-      background-image:url('@/assets/crew/background-crew-mobile.jpg') !important;
+      background-image:url('@/assets/crew/background-crew-mobile.jpg');
     }
   }
   .technology {

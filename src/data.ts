@@ -1,5 +1,5 @@
-import { Technology } from './types/index';
 import { Data } from './types'
+
 import ImageMoon from "@/assets/destination/image-moon.png"
 import ImageMars from "@/assets/destination/image-mars.png"
 import ImageEuropa from "@/assets/destination/image-europa.png"
