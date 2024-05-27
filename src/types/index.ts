@@ -40,3 +40,10 @@ export interface Data {
   crew: Member[]
   technologies: Technology[]
 }
+
+//Section title
+
+export interface SectionTitle {
+  number: number
+  description: String
+}

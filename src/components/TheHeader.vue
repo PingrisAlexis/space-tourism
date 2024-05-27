@@ -5,9 +5,9 @@
                         <img class="logo"src="../assets/shared/logo.svg"/>
                   </router-link>
             <nav>
-                  <img class="menu-toggle open-menu" @click="toggleMenu" src="@/assets/shared/icon-hamburger.svg"></img>
+                  <img class="menu-toggle open-menu" @click="toggleMenu" src="@/assets/shared/icon-hamburger.svg" alt="open menu"></img>
                   <ul :class="menuClass">
-                  <img  class="menu-toggle close-menu" v-if="isMenuOpen"  @click="toggleMenu" src="@/assets/shared/icon-close.svg"></img>
+                  <img  class="menu-toggle close-menu" v-if="isMenuOpen"  @click="toggleMenu" src="@/assets/shared/icon-close.svg" alt="close menu"></img>
                         <li >
                               <router-link to="/" class="hover-border">
                                     <span>&nbsp;00&nbsp;&nbsp;</span>
@@ -43,7 +43,7 @@
       const isMenuOpen = ref(false)
       const isClosing = ref(false)
 
-      const menuClass = computed(() => {
+      const menuClass: object = computed(() => {
             if (isClosing.value) {
             return 'menu-disappear'
             } else if (isMenuOpen.value) {
@@ -53,7 +53,7 @@
             }
       })
 
-      const toggleMenu = computed(() => {
+      const toggleMenu: object = computed(() => {
             if (isMenuOpen.value) {
                   isClosing.value = true
                   setTimeout(() => {

@@ -44,12 +44,12 @@
   @import url('@/assets/main.css');
 
   .background {
-    background-image:url('../assets/technology/background-technology-desktop.jpg');
+    background-image:url('@/assets/technology/background-technology-desktop.jpg');
     @media (max-width: 1150px) {
-      background-image:url('../assets/technology/background-technology-tablet.jpg');
+      background-image:url('@/assets/technology/background-technology-tablet.jpg');
     }
     @media (max-width: 550px) {
-      background-image:url('../assets/technology/background-technology-mobile.jpg');
+      background-image:url('@/assets/technology/background-technology-mobile.jpg');
     }
   }
 main {

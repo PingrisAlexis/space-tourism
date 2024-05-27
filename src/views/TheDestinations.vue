@@ -44,12 +44,12 @@
   @import url('@/assets/main.css');
 
   .background {
-    background-image:url('../assets/destination/background-destination-desktop.jpg') !important;
+    background-image:url('@/assets/destination/background-destination-desktop.jpg') !important;
     @media  (max-width: 1150px) {
-      background-image:url('../assets/destination/background-destination-tablet.jpg') !important;
+      background-image:url('@/assets/destination/background-destination-tablet.jpg') !important;
     }
     @media  (max-width: 550px) {
-      background-image:url('../assets/destination/background-destination-mobile.jpg') !important;
+      background-image:url('@/assets/destination/background-destination-mobile.jpg') !important;
     }
   }
   main {

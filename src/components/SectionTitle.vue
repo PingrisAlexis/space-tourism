@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-    const props = defineProps({
-        section: Object
-    })
+    import { SectionTitle } from '../types'
+    
+    const { section } = defineProps<{ section: SectionTitle }>()
 </script>
 
 <style scoped lang="scss">

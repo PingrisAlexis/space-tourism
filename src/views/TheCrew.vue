@@ -39,12 +39,12 @@
 <style scoped lang="scss">
 @import url('@/assets/main.css');
   .background {
-    background-image:url('../assets/crew/background-crew-desktop.jpg') !important;
+    background-image:url('@/assets/crew/background-crew-desktop.jpg') !important;
     @media (max-width: 1150px) {
-      background-image:url('../assets/crew/background-crew-tablet.jpg') !important;
+      background-image:url('@/assets/crew/background-crew-tablet.jpg') !important;
     }
     @media (max-width: 550px) {
-      background-image:url('../assets/crew/background-crew-mobile.jpg') !important;
+      background-image:url('@/assets/crew/background-crew-mobile.jpg') !important;
     }
   }
   main {
