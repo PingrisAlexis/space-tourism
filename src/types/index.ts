@@ -1,29 +1,29 @@
 //Destination
 export interface Destination {
-  name: String
-  image: String
-  description: String
-  distance: String
-  travel: String
+  name: string
+  image: string
+  description: string
+  distance: string
+  travel: string
 }
 
 //Crew
 export interface Member {
-  name: String
-  image: String
-  role: String
-  bio: String
+  name: string
+  image: string
+  role: string
+  bio: string
 }
 
 //Technologies
 export interface Technology {
-  name: String
+  name: string
   images: ImagesTechnology
-  description: String
+  description: string
 }
 interface ImagesTechnology {
-  portrait: String
-  landscape: String
+  portrait: string
+  landscape: string
 }
 
 //data
@@ -36,6 +36,6 @@ export interface Data {
 //Section title
 
 export interface SectionTitle {
-  number: String
-  description: String
+  number: string
+  description: string
 }
