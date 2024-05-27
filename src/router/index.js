@@ -21,8 +21,8 @@ const routes = [
         component: TheDestinations
     },
     {
-        path: '/technologie',
-        name: 'Technologie',
+        path: '/technology',
+        name: 'Technology',
         component: TheTechnologies
     }
 ]

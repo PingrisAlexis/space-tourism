@@ -27,7 +27,7 @@
                               </router-link>
                         </li>
                         <li>
-                              <router-link to="/technologie" class="hover-border">
+                              <router-link to="/technology" class="hover-border">
                                     <span>&nbsp;03&nbsp;&nbsp;</span>
                                     TECHNOLOGY&nbsp;
                               </router-link>

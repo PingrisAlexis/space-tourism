@@ -18,28 +18,17 @@
         <div class="circle-behind"></div>
     </div>
   </main>
-  <div class="background"></div>
 </template>
 
 <style scoped lang="scss">
   @import url('@/assets/main.css');
 
-  .background {
-    background-image:url('@/assets/home/background-home-desktop.jpg');
-    @media (max-width: 1150px) {
-        background-image:url('@/assets/home/background-home-tablet.jpg');
-    }
-    @media (max-width: 550px) {
-      background-image:url('@/assets/home/background-home-mobile.jpg');
-    }
-  }
   .home-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     padding:2rem 2rem 5rem 2rem;
-    overflow: scroll;
     @media (max-width: 1050px) {
       flex-direction: column;
       align-items: center;

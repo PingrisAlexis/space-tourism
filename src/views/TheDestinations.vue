@@ -20,7 +20,6 @@
     <OneDestination v-if="currentDestination" 
       :destination="currentDestination"
     />
-    <div class="background"></div>
   </main>
 </template>
 
@@ -33,7 +32,7 @@
 
   const destinations: Destination[] = reactive(data.destinations);
 
-  const currentTab = ref(0);
+  const currentTab: number = ref(0)
 
   const currentDestination: Destination = computed<Destination>(() => {
     return destinations[currentTab.value]
@@ -43,15 +42,6 @@
 <style scoped  lang="scss">
   @import url('@/assets/main.css');
 
-  .background {
-    background-image:url('@/assets/destination/background-destination-desktop.jpg') !important;
-    @media  (max-width: 1150px) {
-      background-image:url('@/assets/destination/background-destination-tablet.jpg') !important;
-    }
-    @media  (max-width: 550px) {
-      background-image:url('@/assets/destination/background-destination-mobile.jpg') !important;
-    }
-  }
   main {
     .planets {
       margin-top: 15rem;

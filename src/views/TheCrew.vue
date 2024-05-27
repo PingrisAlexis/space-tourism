@@ -18,7 +18,6 @@
       </div>
     </div>
   </main>
-  <div class="background"></div>
 </template>
 
 <script setup lang="ts">
@@ -39,15 +38,7 @@
 
 <style scoped lang="scss">
 @import url('@/assets/main.css');
-  .background {
-    background-image:url('@/assets/crew/background-crew-desktop.jpg') !important;
-    @media (max-width: 1150px) {
-      background-image:url('@/assets/crew/background-crew-tablet.jpg') !important;
-    }
-    @media (max-width: 550px) {
-      background-image:url('@/assets/crew/background-crew-mobile.jpg') !important;
-    }
-  }
+
   main {
     display: flex;
     flex-direction: column;

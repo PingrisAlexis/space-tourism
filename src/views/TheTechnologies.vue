@@ -22,7 +22,6 @@
       </div>
     </div>
 </main>
-<div class="background"></div>
 </template>
 
 <script setup lang="ts">
@@ -43,15 +42,6 @@
 <style scoped lang="scss">
   @import url('@/assets/main.css');
 
-  .background {
-    background-image:url('@/assets/technology/background-technology-desktop.jpg');
-    @media (max-width: 1150px) {
-      background-image:url('@/assets/technology/background-technology-tablet.jpg');
-    }
-    @media (max-width: 550px) {
-      background-image:url('@/assets/technology/background-technology-mobile.jpg');
-    }
-  }
 main {
   .technologies-container {
     width: 100vw;
