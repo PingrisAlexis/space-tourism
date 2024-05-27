@@ -1,6 +1,6 @@
 <template>
     <div class="one-destination-container">
-            <img v-bind:src="destination.images.png" v-bind:alt="destination.name">
+            <img v-bind:src="destination.image" v-bind:alt="destination.name">
         <section class="details-container">
             <h2>{{ destination.name }}</h2>
             <p class="description">{{ destination.description }}</p>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
   import { Destination } from '../types'
-  
+
   const { destination } = defineProps<{ destination: Destination }>()
 </script>
 

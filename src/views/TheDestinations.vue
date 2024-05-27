@@ -35,7 +35,7 @@
 
   const currentTab = ref(0);
 
-  const currentDestination = computed<Destination>(() => {
+  const currentDestination: Destination = computed<Destination>(() => {
     return destinations[currentTab.value]
   })
 </script>

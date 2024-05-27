@@ -1,7 +1,7 @@
 <template>
     <div class="one-member-container"> 
         <div class="image-container">
-            <img :src="member.images.png" :alt="member.name">
+            <img :src="member.image" :alt="member.name">
             <hr>
         </div>
       <section  class="details-container">

@@ -22,16 +22,17 @@
 </template>
 
 <script setup lang="ts">
+  import { ref, reactive, computed } from 'vue'
+
   import { Member } from '../types'
   import OneMember from '../components/OneMember.vue'
   import SectionTitle from '../components/SectionTitle.vue'
   import { data } from '../data.js';
-  import { ref, reactive, computed } from 'vue'
 
   const crew: Member[] = reactive(data.crew);
-  const currentTab = ref(0);
+  const currentTab = ref<number>(0);
 
-  const currentMember = computed<Member>(() => {
+  const currentMember: Member = computed<Member>(() => {
     return crew[currentTab.value]
   })
 </script>

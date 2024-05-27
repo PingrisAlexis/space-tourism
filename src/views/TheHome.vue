@@ -25,12 +25,12 @@
   @import url('@/assets/main.css');
 
   .background {
-    background-image:url('../assets/home/background-home-desktop.jpg');
+    background-image:url('@/assets/home/background-home-desktop.jpg');
     @media (max-width: 1150px) {
-        background-image:url('../assets/home/background-home-tablet.jpg');
+        background-image:url('@/assets/home/background-home-tablet.jpg');
     }
     @media (max-width: 550px) {
-      background-image:url('../assets/home/background-home-mobile.jpg');
+      background-image:url('@/assets/home/background-home-mobile.jpg');
     }
   }
   .home-container {
@@ -39,10 +39,11 @@
     align-items: center;
     flex-wrap: wrap;
     padding:2rem 2rem 5rem 2rem;
+    overflow: scroll;
     @media (max-width: 1050px) {
       flex-direction: column;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
     }
     @media (max-width: 550px) {
       padding:2rem;
@@ -99,11 +100,12 @@
       @media (max-width: 1050px) {
         width: 180px;
         height: 180px;
-        top: 0rem;
+        top: 10rem;
       }
       @media (max-width: 550px) {
         width: 150px;
         height: 150px;
+        top: 7rem;
       }
     }
   .circle {
@@ -142,12 +144,8 @@
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
     @media (max-width: 1050px) {
-      width: 300px;
-      height: 300px;
-    }
-    @media (max-width: 550px) {
-      width: 240px;
-      height: 240px;
+      width: 0px;
+      height: 0px;
     }
   }
     .circles-container:hover:not(:hover .circle) .circle-behind {
