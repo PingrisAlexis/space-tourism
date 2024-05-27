@@ -1,29 +1,26 @@
-# space-tourism
 
-This template should help get you started developing with Vue 3 in Vite.
+# Space tourism
 
-## Recommended IDE Setup
+##  model-based project
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Elements provided:
 
-## Customize configuration
+- [Mock-ups Space Tourism](https://www.figma.com/design/f7SU2zaofBKR793ZfGZeKS/space-tourism-website?node-id=0-1&t=nuGhd2Uc4a6x4L3x-0)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Datas
 
-## Project Setup
+### Installation:
 
-```sh
-npm install
-```
+- To get started with the project, follow these steps:
 
-### Compile and Hot-Reload for Development
+- Open a terminal and clone the project: 
+            
+      `git clone https://github.com/PingrisAlexis/space-tourism.git`
 
-```sh
-npm run dev
-```
+- then `cd space-tourism`
 
-### Compile and Minify for Production
+- Install dependencies: `npm install`
 
-```sh
-npm run build
-```
+- Start the server:  `npm run dev`
+
+- The server will be available at: http://localhost:5173
