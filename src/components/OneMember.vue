@@ -24,8 +24,8 @@
     .one-member-container {
         display: flex;
         flex-direction: row-reverse;
-        z-index: 1;
-        height: 100vh;
+        z-index: 0;
+        height: 100%;
         width: 100%;
         position: relative;
         top: 3rem;
@@ -36,13 +36,15 @@
             width: 100vw;
             left: 0;
             flex-direction: column-reverse;
-            align-items: center;
             padding: 0rem;
+            top: 0;
         }
         @media (max-width: 800px) {
+            top: 15rem;
+            position: absolute;
             flex-direction: column;
-            justify-content: space-around;
             padding: 0;
+            height: auto;
         }
         .image-container {
             align-self: flex-end;
@@ -54,7 +56,7 @@
                 max-height: 40rem;
             }
             @media (max-width: 800px) {
-                max-height: 28rem;
+                height: 28rem;
                 top: 5rem;
                 display: flex;
                 flex-direction: column;
@@ -93,11 +95,11 @@
                 width: 50rem;
             }
             @media (max-width: 800px) {
-                top: 0;
+                // top: 0;
                 width: 75%;
             }
             @media (max-width: 500px) {
-                top: 0;
+                // top: 0;
                 width: 90%;
             }
             :first-child {

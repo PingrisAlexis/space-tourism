@@ -45,12 +45,15 @@
         align-items: center;
         width: 100%;
         padding-left: 25rem;
+        position: relative;
+        top: 15rem;
         @media (max-width: 1450px) {
             padding-left: 1rem;
         }
         @media (max-width: 1150px) {
             flex-direction: column;
             padding-left: 0;
+            top: 2rem;
         }
         .image-container {
             @media (max-width: 1150px) {
@@ -62,21 +65,20 @@
                 height: 100%;
                 width: 100%;    
                 object-fit: cover;
-
             }
         }
         .details-container {
             display: flex;
             flex-direction: column;
             align-self: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-wrap: wrap;
             padding: 2rem;
-            height: 30rem;
-            text-wrap: nowrap;
+            height: 35rem;
+            text-wrap: nowrap;            
             @media (max-width: 1150px) {
                 position: relative;
-                top: 6rem;
+                top: 11rem;
             }
             :first-child {
                 font-size: 2.3rem;
@@ -101,7 +103,7 @@
                 @media (max-width: 1150px) {
                     font-size: 2rem;
                     text-align: center;
-            }
+                }
             }
         }
     }

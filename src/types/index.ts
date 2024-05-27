@@ -34,7 +34,6 @@ export interface Data {
 }
 
 //Section title
-
 export interface SectionTitle {
   number: string
   description: string

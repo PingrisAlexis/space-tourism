@@ -29,10 +29,13 @@
     align-items: center;
     flex-wrap: wrap;
     padding:2rem 2rem 5rem 2rem;
+
     @media (max-width: 1050px) {
+      position: relative;
+      top: 5rem;
+      height: 80%;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-content: space-around;
     }
     @media (max-width: 550px) {
       padding:2rem;

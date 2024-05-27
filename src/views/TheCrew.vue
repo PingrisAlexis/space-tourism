@@ -44,20 +44,26 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    overflow:hidden;
+    position: relative;
+    @media (max-width: 1150px) {
+      flex-direction: column-reverse;
+    }
   }
   .tabs {
-    position: relative;
+    position: absolute;
     bottom: 8rem;
     left: 20rem;
     z-index: 2;
     @media (max-width: 1150px) {
-      bottom: 45rem;
+      top: 36rem;
       left: 0rem;
-      align-self: center;
+      width: 100vw;
+      text-align: center;
     }
     @media (max-width: 800px) {
-      bottom: 33rem;
+      bottom: 0;
+      top: 50rem;
+      position: absolute;
     }
     .button {
       margin: 0.8rem;
@@ -68,6 +74,10 @@
       display: inline-block;
       cursor: pointer;
       transition: background-color .8s ease;
+      @media (max-width: 800px) {
+        height: 18px;
+        width: 18px;
+      }
       &.active {
         background-color: var(--color-first);
       }

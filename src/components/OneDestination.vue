@@ -4,7 +4,9 @@
         <section class="details-container">
             <h2>{{ destination.name }}</h2>
             <p class="description">{{ destination.description }}</p>
+            <hr>
             <div class="information">
+                
                <div>
                     <p class="travel-title">AVG. DISTANCE</p>
                     <p class="travel-value">{{ destination.distance }}</p>
@@ -84,10 +86,23 @@
                     font-size: 2rem;
                 }
             }
+            hr {
+                position: relative;
+                top: 2rem;
+                border: 1px solid #464850;
+                width: 100%;
+                // @media (max-width: 800px) {
+                    display: block;
+                
+                @media (max-width: 500px) {
+                    width: 80vw;
+                }
+            }
             .information {
                 display: flex;
                 justify-content: space-between;
                 padding-top: 3rem;
+                
                 .distance-title,
                 .travel-title {
                     font-size: 2rem;

@@ -171,6 +171,7 @@
       .close-menu {
             top: 2.5rem;
             right: 5rem;
+            width: 3rem;
       }
       .menu-appear,
       .menu-disappear {

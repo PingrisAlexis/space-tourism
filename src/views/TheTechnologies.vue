@@ -44,17 +44,16 @@
 
 main {
   .technologies-container {
-    width: 100vw;
-    height: 100vh;
     padding-top: 10rem;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: nowrap;
     @media (max-width: 1150px) {
       flex-direction: column;
       justify-items: center;
+      align-items: space-around;
     }
     .tabs {
       display: flex;
@@ -62,11 +61,15 @@ main {
       z-index: 2;
       left: 20rem;
       position: relative;
+      top: 13rem;
       @media (max-width: 1450px) {
-        left: 1rem;
+        left: 0;
       }
       @media (max-width: 1150px) {
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        top: -30rem;
         }
       .button {
         display: flex;
@@ -86,11 +89,6 @@ main {
           height: 5rem;
           width: 5rem;
           font-size: 2rem;
-          position: relative;
-          bottom: 28rem;
-        }
-        @media (max-width: 550px) {
-          bottom: 32rem;
         }
         &.active {
           background-color: var(--color-first);
