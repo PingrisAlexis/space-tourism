@@ -40,7 +40,7 @@
             top: 0;
         }
         @media (max-width: 800px) {
-            top: 15rem;
+            top: 13rem;
             position: absolute;
             flex-direction: column;
             padding: 0;
@@ -56,7 +56,7 @@
                 max-height: 40rem;
             }
             @media (max-width: 800px) {
-                height: 28rem;
+                height: 30rem;
                 top: 5rem;
                 display: flex;
                 flex-direction: column;
@@ -91,15 +91,10 @@
             width: 45rem;
             @media (max-width: 1150px) {
                 position: relative;
-                top: 12rem;
-                width: 50rem;
+                top: 15rem;
+                width: 57rem;
             }
             @media (max-width: 800px) {
-                // top: 0;
-                width: 75%;
-            }
-            @media (max-width: 500px) {
-                // top: 0;
                 width: 90%;
             }
             :first-child {
@@ -127,7 +122,6 @@
                 @media (max-width: 1150px) {
                     font-size: 5rem;
                     text-align: center;
-                    padding: 0rem 0rem 1rem 0rem;
                 }
                 @media (max-width: 500px) {
                     font-size: 4rem;

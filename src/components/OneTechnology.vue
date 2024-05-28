@@ -18,7 +18,7 @@
   
     const { technology } = defineProps<{ technology: Technology }>()
 
-    const width = ref(window.innerWidth)
+    const width = ref<number>(window.innerWidth)
 
     const breakpoint = 1150
 
@@ -84,6 +84,7 @@
                 font-size: 2.3rem;
             }
             h2 {
+                padding: 2rem 0rem;
                 font-size: 10rem;
                 @media (max-width: 1150px) {
                     font-size: 5rem;

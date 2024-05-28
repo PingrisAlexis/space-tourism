@@ -3,10 +3,7 @@
     <div class="presentation">
       <p class="title">SO, YOU WANT TO TRAVEL TO</p>
       <h1>SPACE</h1>  
-      <p class="details">Let's face it; if you want to go space, you might as well
-        genuinely go to outer space and not hover kind of on the  
-        edge of it. Well sit back, and relax because we'll give you a
-        truly out of this world experience!
+      <p class="details">Let's face it: if you want to go to space, you might as well genuinely go to outer space and not just hover on the edge of it. So sit back and relax, because we'll give you a truly out-of-this-world experience!
       </p>
     </div>
     <div class="circles-container">
@@ -63,7 +60,7 @@
         }
       }
       h1 {
-        margin: 2.5rem 0rem;
+        margin: 2rem 0rem;
         font-size: 15rem;
         @media (max-width: 1050px) {
           font-size: 10rem; 

@@ -8,25 +8,25 @@
                   <img class="menu-toggle open-menu" @click="toggleMenu" src="@/assets/shared/icon-hamburger.svg" alt="open menu"></img>
                   <ul :class="menuClass">
                   <img  class="menu-toggle close-menu" v-if="isMenuOpen"  @click="toggleMenu" src="@/assets/shared/icon-close.svg" alt="close menu"></img>
-                        <li >
+                        <li @click="toggleMenu">
                               <router-link to="/" class="hover-border">
                                     <span>&nbsp;00&nbsp;&nbsp;</span>
                                     HOME&nbsp;
                               </router-link>
                         </li>
-                        <li>
+                        <li @click="toggleMenu">
                               <router-link to="/destination"  class="hover-border">
                                     <span>&nbsp;01&nbsp;&nbsp;</span>
                                     DESTINATION&nbsp;
                               </router-link>
                         </li>
-                        <li>
+                        <li @click="toggleMenu">
                               <router-link to="/crew" class="hover-border">
                                     <span>&nbsp;02&nbsp;&nbsp;</span>
                                     CREW&nbsp;
                               </router-link>
                         </li>
-                        <li>
+                        <li @click="toggleMenu">
                               <router-link to="/technology" class="hover-border">
                                     <span>&nbsp;03&nbsp;&nbsp;</span>
                                     TECHNOLOGY&nbsp;
@@ -38,12 +38,27 @@
 </template>
 
 <script setup lang="ts">
-      import { ref, computed } from 'vue'
+      import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 
-      const isMenuOpen = ref(false)
-      const isClosing = ref(false)
+      const isMenuOpen = ref<boolean>(false)
+      const isClosing = ref<boolean>(false)
+      const width = ref<number>(window.innerWidth)
+      const breakpoint = 800;
 
-      const menuClass: object = computed(() => {
+      const isMobile = (): boolean => {
+            return width.value <= breakpoint
+      }
+
+      const handleResize = () => {
+            width.value = window.innerWidth
+            if (isMobile()) {
+            isMenuOpen.value = false
+            } else {
+            isMenuOpen.value = true
+            }
+      }
+
+      const menuClass = computed<string>(() => {
             if (isClosing.value) {
             return 'menu-disappear'
             } else if (isMenuOpen.value) {
@@ -53,15 +68,35 @@
             }
       })
 
-      const toggleMenu: object = computed(() => {
-            if (isMenuOpen.value) {
-                  isClosing.value = true
+      const toggleMenu = (): void => {
+            if (isMobile()) {
+                  if (isMenuOpen.value) {
+                        isClosing.value = true
                   setTimeout(() => {
-                  isMenuOpen.value = false
-                  isClosing.value = false
-                  }, 400);
+                        isMenuOpen.value = false
+                        isClosing.value = false
+                  }, 800)
                   } else {
-                  isMenuOpen.value = true
+                        isMenuOpen.value = true
+                        isClosing.value = false
+                  }
+            }
+      }
+      
+      onMounted(() => {
+            window.addEventListener('resize', handleResize)
+            handleResize()
+      })
+
+      onUnmounted(() => {
+            window.removeEventListener('resize', handleResize)
+      })
+
+      watch(width, (newWidth: number) => {
+            if (newWidth <= breakpoint) {
+            isMenuOpen.value = false
+            } else {
+            isMenuOpen.value = true
             }
       })
 </script>
@@ -186,14 +221,17 @@
       }  
       .menu-appear {
             @media  (max-width: 800px) {
-                  animation: menu_appear .6s forwards;
+                  animation: menu_appear .8s forwards;
             }
       }
       .menu-disappear {
             @media  (max-width: 800px) {
-                  animation: menu_disappear .6s forwards;
+                  animation: menu_disappear .8s forwards;
             }
       }
+      ul:not(.menu-appear):not(.menu-disappear) {
+  display: none;
+}
       @keyframes menu_appear {
       from {
       transform: translateX(100%);

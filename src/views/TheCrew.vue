@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-touch:swipe.left="nextTab" v-touch:swipe.right="prevTab">
     <SectionTitle 
       :section="{ 
       number: '02', 
@@ -28,12 +28,28 @@
   import SectionTitle from '../components/SectionTitle.vue'
   import { data } from '../data.js';
 
-  const crew: Member[] = reactive(data.crew);
+  const crew = reactive<Member[]>(data.crew);
   const currentTab = ref<number>(0);
 
-  const currentMember: Member = computed<Member>(() => {
+  const currentMember = computed<Member>(() => {
     return crew[currentTab.value]
   })
+
+  const nextTab = () => {
+    if (currentTab.value < crew.length - 1) {
+      currentTab.value++
+    } else {
+      currentTab.value = 0
+    }
+  }
+
+  const prevTab = () => {
+    if (currentTab.value > 0) {
+      currentTab.value--
+    } else {
+      currentTab.value = crew.length - 1
+    }
+  }
 </script>
 
 <style scoped lang="scss">
@@ -55,14 +71,14 @@
     left: 20rem;
     z-index: 2;
     @media (max-width: 1150px) {
-      top: 36rem;
+      top: 38rem;
       left: 0rem;
       width: 100vw;
       text-align: center;
     }
     @media (max-width: 800px) {
       bottom: 0;
-      top: 50rem;
+      top: 52rem;
       position: absolute;
     }
     .button {

@@ -31,8 +31,8 @@
   import { data } from '../data.ts'
   import { ref, reactive, computed } from 'vue'
 
-  const technologies: Technology[] = reactive(data.technologies);
-  const currentTab = ref(0)
+  const technologies = reactive<Technology[]>(data.technologies);
+  const currentTab = ref<number>(0)
 
   const currentTechnology = computed<Technology>(() => {
     return technologies[currentTab.value]

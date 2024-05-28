@@ -8,7 +8,7 @@
 
   const route = useRoute();
 
-  const backgroundClass: String = computed(() => {
+  const backgroundClass = computed<string>(() => {
     switch (route.path) {
       case '/':
         return 'home';
@@ -19,7 +19,7 @@
       case '/technology':
         return 'technology';
       default:
-        return 'black-background';
+        return '';
     }
   })
 </script>

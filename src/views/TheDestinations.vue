@@ -30,11 +30,11 @@
   import { data } from '../data.js';
   import { ref, reactive, computed } from 'vue'
 
-  const destinations: Destination[] = reactive(data.destinations);
+  const destinations = reactive<Destination[]>(data.destinations);
 
-  const currentTab: number = ref(0)
+  const currentTab = ref<number>(0)
 
-  const currentDestination: Destination = computed<Destination>(() => {
+  const currentDestination = computed<Destination>(() => {
     return destinations[currentTab.value]
   })
 </script>
@@ -55,14 +55,14 @@
         z-index: 2 !important;
         color: var(--color-sec);
         @media (max-width: 1150px) {
-          top: 32.5rem;
+          top: 36rem;
           left: 0rem;
           align-self: center;
           z-index: 1;
           margin: auto !important;
         }
         @media (max-width: 800px) {
-          top: 30rem;
+          top: 31rem;
         }
         button {
           background: transparent;

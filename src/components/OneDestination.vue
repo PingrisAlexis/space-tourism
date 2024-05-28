@@ -38,7 +38,7 @@
         @media (max-width: 1150px) {
             flex-direction: column;
             align-items: center;
-            top: 5rem;
+            top: 7rem;
         }
         img {
             position: relative;
@@ -49,7 +49,7 @@
                 width: 30rem;
                 bottom: 8rem;
             }
-            @media (max-width: 1150px) {
+            @media (max-width: 800px) {
                 width: 25rem;
             }
         }
@@ -62,20 +62,19 @@
                 left: 0rem;
             }
             @media (max-width: 800px) {
-                width: 30rem;
+                width: 35rem;
             }
+    
             h2 {
-                padding: 4rem 0rem;
+                padding: 1rem 0rem;
                 position: relative;
                 right: 1rem;
-                font-size: 11rem;
+                font-size: 10rem;
                 text-transform: uppercase;
                 @media (max-width: 1150px) {
                     font-size: 5rem;
                     text-align: center;
-                }
-                @media (max-width: 800px) {
-                    padding: 1rem 0rem;
+                    right: 0;
                 }
             } 
             .description {
@@ -84,24 +83,19 @@
                 color: var(--color-sec);
                 @media (max-width: 1150px) {
                     font-size: 2rem;
+                    text-align: center;
                 }
             }
             hr {
                 position: relative;
-                top: 2rem;
+                top: 3rem;
                 border: 1px solid #464850;
-                width: 100%;
-                // @media (max-width: 800px) {
-                    display: block;
-                
-                @media (max-width: 500px) {
-                    width: 80vw;
-                }
+                width: 100%;                
             }
             .information {
                 display: flex;
                 justify-content: space-between;
-                padding-top: 3rem;
+                padding-top: 5rem;
                 
                 .distance-title,
                 .travel-title {
