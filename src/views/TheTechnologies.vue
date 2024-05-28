@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-touch:swipe.left="nextTab" v-touch:swipe.right="prevTab">
     <SectionTitle 
       :section="{ 
         number: '03', 
@@ -37,6 +37,22 @@
   const currentTechnology = computed<Technology>(() => {
     return technologies[currentTab.value]
   })
+
+  const nextTab = ():void => {
+    if (currentTab.value < technologies.length - 1) {
+      currentTab.value++
+    } else {
+      currentTab.value = 0
+    }
+  }
+
+  const prevTab = ():void => {
+    if (currentTab.value > 0) {
+      currentTab.value--
+    } else {
+      currentTab.value = technologies.length - 1
+    }
+  }
 </script>
 
 <style scoped lang="scss">

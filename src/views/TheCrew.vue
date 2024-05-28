@@ -35,7 +35,7 @@
     return crew[currentTab.value]
   })
 
-  const nextTab = () => {
+  const nextTab = ():void => {
     if (currentTab.value < crew.length - 1) {
       currentTab.value++
     } else {
@@ -43,7 +43,7 @@
     }
   }
 
-  const prevTab = () => {
+  const prevTab = ():void => {
     if (currentTab.value > 0) {
       currentTab.value--
     } else {

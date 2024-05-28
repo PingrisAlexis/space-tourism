@@ -1,27 +1,11 @@
 <template>
-  <div :class="backgroundClass" class="background-container"></div>
+  <div :class="pathname" class="background-container"></div>
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
-  import { useRoute } from 'vue-router';
+import { defineProps } from 'vue';
 
-  const route = useRoute();
-
-  const backgroundClass = computed<string>(() => {
-    switch (route.path) {
-      case '/':
-        return 'home';
-      case '/destination':
-        return 'destination';
-      case '/crew':
-        return 'crew';
-      case '/technology':
-        return 'technology';
-      default:
-        return '';
-    }
-  })
+const { pathname } = defineProps<{ pathname: string }>()
 </script>
 
 <style scoped lang="scss">

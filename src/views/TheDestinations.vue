@@ -1,25 +1,25 @@
 <template>
-  <main>
-    <SectionTitle 
-      :section="{ 
-        number: '01', 
-        description: 'PICK YOUR DESTINATION'}"
-    />
-    <div class="planets">
-      <div class="tabs">
-        <button 
-          v-for="(destination, index) in destinations" 
-          :key="index"
-          @click="currentTab = index"
-          :class="{ 'hover-border': true, 'active': currentTab === index }"
-        >
-          {{ destination.name }}
-        </button>
-      </div>
-    </div>
-    <OneDestination v-if="currentDestination" 
-      :destination="currentDestination"
-    />
+    <main v-touch:swipe.left="nextTab" v-touch:swipe.right="prevTab">
+      <SectionTitle 
+            :section="{ 
+              number: '01', 
+              description: 'PICK YOUR DESTINATION'}"
+          />
+          <div class="planets">
+            <div class="tabs">
+              <button 
+                v-for="(destination, index) in destinations" 
+                :key="index"
+                @click="currentTab = index"
+                :class="{ 'hover-border': true, 'active': currentTab === index }"
+              >
+                {{ destination.name }}
+              </button>
+            </div>
+          </div>
+          <OneDestination v-if="currentDestination" 
+            :destination="currentDestination"
+          />
   </main>
 </template>
 
@@ -27,8 +27,9 @@
   import { Destination } from '../types'
   import OneDestination from '../components/OneDestination.vue'
   import SectionTitle from '../components/SectionTitle.vue'
+
   import { data } from '../data.js';
-  import { ref, reactive, computed } from 'vue'
+  import { ref, reactive, computed, onMounted } from 'vue'
 
   const destinations = reactive<Destination[]>(data.destinations);
 
@@ -37,6 +38,22 @@
   const currentDestination = computed<Destination>(() => {
     return destinations[currentTab.value]
   })
+
+  const nextTab = ():void => {
+    if (currentTab.value < destinations.length - 1) {
+      currentTab.value++
+    } else {
+      currentTab.value = 0
+    }
+  }
+
+  const prevTab = ():void => {
+    if (currentTab.value > 0) {
+      currentTab.value--
+    } else {
+      currentTab.value = destinations.length - 1
+    }
+  }
 </script>
 
 <style scoped  lang="scss">
