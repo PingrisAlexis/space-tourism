@@ -3,9 +3,57 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps, onMounted } from 'vue'
+
+import backgroundHomeDesktop from '@/assets/home/background-home-desktop.jpg'
+import backgroundHomeTablet from '@/assets/home/background-home-tablet.jpg'
+import backgroundHomeMobile from '@/assets/home/background-home-mobile.jpg'
+import backgroundDestinationDesktop from '@/assets/destination/background-destination-desktop.jpg'
+import backgroundDestinationTablet from '@/assets/destination/background-destination-tablet.jpg'
+import backgroundDestinationMobile from '@/assets/destination/background-destination-mobile.jpg'
+import backgroundCrewDesktop from '@/assets/crew/background-crew-desktop.jpg'
+import backgroundCrewTablet from '@/assets/crew/background-crew-tablet.jpg'
+import backgroundCrewMobile from '@/assets/crew/background-crew-mobile.jpg'
+import backgroundTechnologyDesktop from '@/assets/technology/background-technology-desktop.jpg'
+import backgroundTechnologyTablet from '@/assets/technology/background-technology-tablet.jpg'
+import backgroundTechnologyMobile from '@/assets/technology/background-technology-mobile.jpg'
 
 const { backgroundClass } = defineProps<{ backgroundClass: string }>()
+
+const preloadImages = (urls: string[]): Promise<void[]> => {
+  return Promise.all(urls.map((url) => {
+    return new Promise<void>((resolve, reject) => {
+      const img = new Image()
+      img.src = url
+      img.onload = () => resolve()
+      img.onerror = () => reject(new Error(`Failed to load image: ${url}`))
+    })
+  }))
+}
+
+onMounted(() => {
+  preloadImages(backgroundImages)
+    .then(() => {
+      console.log('Images préchargées avec succès.')
+    })
+    .catch((err) => {
+      console.error('Erreur lors du préchargement des images:', err)
+    })
+})
+const backgroundImages = [
+  backgroundHomeDesktop,
+  backgroundHomeTablet,
+  backgroundHomeMobile,
+  backgroundDestinationDesktop,
+  backgroundDestinationTablet,
+  backgroundDestinationMobile,
+  backgroundCrewDesktop,
+  backgroundCrewTablet,
+  backgroundCrewMobile,
+  backgroundTechnologyDesktop,
+  backgroundTechnologyTablet,
+  backgroundTechnologyMobile
+];
 </script>
 
 <style scoped lang="scss">

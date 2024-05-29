@@ -10,11 +10,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
 import BackgroundType from '@/components/BackgroundType.vue'
 import LoaderSpinner from '@/components/LoaderSpinner.vue'
 import { computed } from 'vue'
-  import { useRoute } from 'vue-router';
 
   const route = useRoute();
 
@@ -42,15 +42,15 @@ router.isReady().then(() => {
     }, 400);
 });
 
-router.beforeEach(() => {
-        isLoading.value = true
-});
+// router.beforeEach(() => {
+//         isLoading.value = true
+// });
 
-router.afterEach(() => {
-    setTimeout(() => {
-        isLoading.value = false
-    }, 400);
-});
+// router.afterEach(() => {
+//     setTimeout(() => {
+//         isLoading.value = false
+//     }, 400);
+// });
 </script>
 
 
