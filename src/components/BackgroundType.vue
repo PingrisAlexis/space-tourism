@@ -1,11 +1,11 @@
 <template>
-  <div :class="pathname" class="background-container"></div>
+  <div :class="backgroundClass" class="background-container"></div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const { pathname } = defineProps<{ pathname: string }>()
+const { backgroundClass } = defineProps<{ backgroundClass: string }>()
 </script>
 
 <style scoped lang="scss">

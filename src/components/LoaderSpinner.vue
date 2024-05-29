@@ -27,13 +27,12 @@
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
-    animation: spin 3s linear infinite;
+    animation: spin 2s linear infinite;
     position: absolute;
     left: 50%;
     top: 50%;
     z-index: 2;
 }
-
 @keyframes spin {
     0% {
         transform: rotate(0deg);

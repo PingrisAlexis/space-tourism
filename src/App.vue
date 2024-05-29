@@ -1,9 +1,9 @@
 <template>
     <div>
         <TheHeader />
-        <!-- <LoaderSpinner v-if="isLoading"/> -->
+        <LoaderSpinner v-if="isLoading"/>
         <router-view/> 
-        <BackgroundType :pathname="pathname"/>
+        <BackgroundType :backgroundClass="pathname"/>
     </div>
 </template>
 
@@ -32,7 +32,7 @@ import { computed } from 'vue'
         return '';
     }
   })
-  console.log(pathname.value);
+
 const isLoading = ref<boolean>(true)
 const router = useRouter()
 
