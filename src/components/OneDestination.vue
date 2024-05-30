@@ -43,7 +43,7 @@
         img {
             position: relative;
             right: 12rem;
-            bottom: 2rem;
+            bottom: 5rem;
             @media (max-width: 1150px) {
                 right: 0;
                 width: 30rem;

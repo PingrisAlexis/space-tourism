@@ -17,10 +17,13 @@
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: 2;
-    backdrop-filter: blur(25px);
-    background-color: rgba(255, 255, 255, 0.08);
+    z-index: 3;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .loader {
     border: .4rem solid var(--color-bar-hover);
     border-top: .4rem solid white;
@@ -28,11 +31,11 @@
     width: 10rem;
     height: 10rem;
     animation: spin 2s linear infinite;
-    position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 2;
+    z-index: 3;
 }
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

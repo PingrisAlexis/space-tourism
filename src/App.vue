@@ -8,13 +8,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useRoute } from 'vue-router'
-import TheHeader from '@/components/TheHeader.vue'
-import BackgroundType from '@/components/BackgroundType.vue'
-import LoaderSpinner from '@/components/LoaderSpinner.vue'
-import { computed } from 'vue'
+import TheHeader from './components/TheHeader.vue'
+import BackgroundType from './components/BackgroundType.vue'
+import LoaderSpinner from './components/LoaderSpinner.vue'
+
+import { ref, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
   const route = useRoute();
 
@@ -39,18 +38,9 @@ const router = useRouter()
 router.isReady().then(() => {
     setTimeout(() => {
         isLoading.value = false
-    }, 400);
+    }, 600);
 });
 
-// router.beforeEach(() => {
-//         isLoading.value = true
-// });
-
-// router.afterEach(() => {
-//     setTimeout(() => {
-//         isLoading.value = false
-//     }, 400);
-// });
 </script>
 
 

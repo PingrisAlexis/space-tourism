@@ -1,11 +1,17 @@
 <template>
-  <main v-touch:swipe.left="nextTab" v-touch:swipe.right="prevTab">
+  <main >
+    <ScreenSlider 
+      :currentTab="currentTab" 
+      :collection="crew" 
+      @update-tab="updateTab"
+      />
     <SectionTitle 
       :section="{ 
       number: '02', 
       description: 'MEET YOUR CREW'}" 
     />  
-    <OneMember v-if="currentMember" class="member"
+    <OneMember v-if="currentMember" 
+      class="member"
       :member="currentMember"
     />
     <div class="tabs">
@@ -22,11 +28,11 @@
 
 <script setup lang="ts">
   import { ref, reactive, computed } from 'vue'
-
+  import { data } from '../data.js'
   import { Member } from '../types'
   import OneMember from '../components/OneMember.vue'
   import SectionTitle from '../components/SectionTitle.vue'
-  import { data } from '../data.js';
+  import ScreenSlider from '../components/ScreenSlider.vue'
 
   const crew = reactive<Member[]>(data.crew);
   const currentTab = ref<number>(0);
@@ -35,20 +41,8 @@
     return crew[currentTab.value]
   })
 
-  const nextTab = ():void => {
-    if (currentTab.value < crew.length - 1) {
-      currentTab.value++
-    } else {
-      currentTab.value = 0
-    }
-  }
-
-  const prevTab = ():void => {
-    if (currentTab.value > 0) {
-      currentTab.value--
-    } else {
-      currentTab.value = crew.length - 1
-    }
+  const updateTab = (newTab: number) => {
+    currentTab.value = newTab
   }
 </script>
 

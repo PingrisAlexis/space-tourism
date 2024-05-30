@@ -32,6 +32,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 0rem 20rem;
+        overflow: hidden !important;
         @media (max-width: 1150px) {
             width: 100vw;
             left: 0;

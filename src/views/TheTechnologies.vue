@@ -1,5 +1,10 @@
 <template>
-  <main v-touch:swipe.left="nextTab" v-touch:swipe.right="prevTab">
+  <main >
+    <ScreenSlider 
+      :currentTab="currentTab" 
+      :collection="technologies" 
+      @update-tab="updateTab"
+      />
     <SectionTitle 
       :section="{ 
         number: '03', 
@@ -25,11 +30,12 @@
 </template>
 
 <script setup lang="ts">
+  import { ref, reactive, computed } from 'vue'
+  import { data } from '../data.ts'
   import { Technology } from '../types'
   import OneTechnology from '../components/OneTechnology.vue'
   import SectionTitle from '../components/SectionTitle.vue'
-  import { data } from '../data.ts'
-  import { ref, reactive, computed } from 'vue'
+  import ScreenSlider from '../components/ScreenSlider.vue'
 
   const technologies = reactive<Technology[]>(data.technologies);
   const currentTab = ref<number>(0)
@@ -37,21 +43,8 @@
   const currentTechnology = computed<Technology>(() => {
     return technologies[currentTab.value]
   })
-
-  const nextTab = ():void => {
-    if (currentTab.value < technologies.length - 1) {
-      currentTab.value++
-    } else {
-      currentTab.value = 0
-    }
-  }
-
-  const prevTab = ():void => {
-    if (currentTab.value > 0) {
-      currentTab.value--
-    } else {
-      currentTab.value = technologies.length - 1
-    }
+  const updateTab = (newTab: number) => {
+    currentTab.value = newTab
   }
 </script>
 

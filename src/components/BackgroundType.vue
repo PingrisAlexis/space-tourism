@@ -20,6 +20,21 @@ import backgroundTechnologyMobile from '@/assets/technology/background-technolog
 
 const { backgroundClass } = defineProps<{ backgroundClass: string }>()
 
+const backgroundImages: string[] = [
+  backgroundHomeDesktop,
+  backgroundHomeTablet,
+  backgroundHomeMobile,
+  backgroundDestinationDesktop,
+  backgroundDestinationTablet,
+  backgroundDestinationMobile,
+  backgroundCrewDesktop,
+  backgroundCrewTablet,
+  backgroundCrewMobile,
+  backgroundTechnologyDesktop,
+  backgroundTechnologyTablet,
+  backgroundTechnologyMobile
+]
+
 const preloadImages = (urls: string[]): Promise<void[]> => {
   return Promise.all(urls.map((url) => {
     return new Promise<void>((resolve, reject) => {
@@ -33,27 +48,8 @@ const preloadImages = (urls: string[]): Promise<void[]> => {
 
 onMounted(() => {
   preloadImages(backgroundImages)
-    .then(() => {
-      console.log('Images préchargées avec succès.')
-    })
-    .catch((err) => {
-      console.error('Erreur lors du préchargement des images:', err)
-    })
 })
-const backgroundImages = [
-  backgroundHomeDesktop,
-  backgroundHomeTablet,
-  backgroundHomeMobile,
-  backgroundDestinationDesktop,
-  backgroundDestinationTablet,
-  backgroundDestinationMobile,
-  backgroundCrewDesktop,
-  backgroundCrewTablet,
-  backgroundCrewMobile,
-  backgroundTechnologyDesktop,
-  backgroundTechnologyTablet,
-  backgroundTechnologyMobile
-];
+
 </script>
 
 <style scoped lang="scss">
@@ -71,7 +67,7 @@ const backgroundImages = [
   .home {
     background-image:url('@/assets/home/background-home-desktop.jpg');
     @media (max-width: 1150px) {
-        background-image:url('@/assets/home/background-home-tablet.jpg');
+      background-image:url('@/assets/home/background-home-tablet.jpg');
     }
     @media (max-width: 550px) {
       background-image:url('@/assets/home/background-home-mobile.jpg');
