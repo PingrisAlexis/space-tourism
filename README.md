@@ -13,7 +13,7 @@
 
 - To get started with the project, follow these steps:
 
-- Clone the project: 
+- Open a terminal and clone the project: 
             
       `git clone https://github.com/PingrisAlexis/space-tourism.git`
 

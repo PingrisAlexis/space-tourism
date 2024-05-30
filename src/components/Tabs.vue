@@ -4,7 +4,7 @@
       v-for="(item, index) in collection"
       :key="index"
       @click="selectTab(index)"
-      :class="{  'active': currentTab === index, [customClassBtns]: true }"
+      :class="{  'active': currentTab === index, [customClassBtns]: true,  'hover-border': collectionName === 'destinations' }"
     >
     <span v-if="collectionName === 'destinations'"> {{ item.name }}</span>
     <span v-if="collectionName === 'technologies'"> {{ index +1 }}</span>
@@ -102,7 +102,7 @@ watch(() => props.currentTab, (newTab) => {
       background-color: transparent;
       border-radius: 50%;
       border: 1px solid #464850;
-      transition: border .8s ease, background-color .8s ease, color .8s ease;
+      transition: border 1s ease, background-color 1s ease, color 1s ease;
       color: white;
       cursor: pointer;
       @media (max-width: 1150px) {
@@ -145,7 +145,7 @@ watch(() => props.currentTab, (newTab) => {
       border-radius: 50%;
       display: inline-block;
       cursor: pointer;
-      transition: background-color .8s ease;
+      transition: background-color 1s ease;
       @media (max-width: 800px) {
         height: 18px;
         width: 18px;
