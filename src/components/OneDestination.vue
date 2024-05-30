@@ -27,7 +27,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import url('@/assets/main.css');
+    @import url('@/assets/main.scss');
     .one-destination-container {
         display: flex;
         z-index: 1;

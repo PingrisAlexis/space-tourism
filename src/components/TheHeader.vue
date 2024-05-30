@@ -102,7 +102,7 @@
 </script>
 
 <style scoped lang="scss">
-      @import url('@/assets/main.css');
+      @import url('@/assets/main.scss');
       header {
             display: flex;
             background-color: transparent;

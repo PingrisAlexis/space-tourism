@@ -47,7 +47,7 @@
 </script>
 
 <style scoped lang="scss">
-@import url('@/assets/main.css');
+@import url('@/assets/main.scss');
 
   main {
     display: flex;
@@ -63,11 +63,13 @@
     position: absolute;
     bottom: 8rem;
     left: 20rem;
-    z-index: 2;
+    z-index: 2 !important;
+    height: 0rem;
+    background-color: red;
     @media (max-width: 1150px) {
       top: 38rem;
       left: 0rem;
-      width: 100vw;
+      width: 100%;
       text-align: center;
     }
     @media (max-width: 800px) {

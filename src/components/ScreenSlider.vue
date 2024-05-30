@@ -37,13 +37,13 @@
 </script>
 
 <style scoped lang="scss">
-  @import url('@/assets/main.css');
+  @import url('@/assets/main.scss');
 .screen-slider-container {
-  z-index: 1 !important;
+  z-index: 2 !important;
   position: absolute !important;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 </style>

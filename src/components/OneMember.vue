@@ -19,7 +19,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import url('@/assets/main.css');
+    @import url('@/assets/main.scss');
 
     .one-member-container {
         display: flex;
@@ -31,8 +31,7 @@
         top: 3rem;
         justify-content: space-between;
         align-items: center;
-        padding: 0rem 20rem;
-        overflow: hidden !important;
+        padding: 0rem 20rem;        
         @media (max-width: 1150px) {
             width: 100vw;
             left: 0;
@@ -49,6 +48,7 @@
         }
         .image-container {
             align-self: flex-end;
+            
             max-height: 65rem;
             position: relative;
             @media (max-width: 1150px) {
@@ -90,6 +90,7 @@
             flex-direction: column;
             align-self: center;
             width: 45rem;
+
             @media (max-width: 1150px) {
                 position: relative;
                 top: 15rem;
