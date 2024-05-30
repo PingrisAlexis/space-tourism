@@ -19,7 +19,6 @@
     const { technology } = defineProps<{ technology: Technology }>()
 
     const width = ref<number>(window.innerWidth)
-
     const breakpoint = 1150
 
     const updateWidth = () => {

@@ -10,7 +10,7 @@
 
   const emit = defineEmits(['update-tab'])
 
-  const currentTab = ref(props.currentTab)
+  const currentTab = ref<number>(props.currentTab)
   const collection = props.collection
 
   const nextTab = (): void => {

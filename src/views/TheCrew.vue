@@ -14,15 +14,14 @@
       class="member"
       :member="currentMember"
     />
-    <div class="tabs">
-      <div class="button"
-        v-for="(member, index) in crew" 
-        :key="index"
-        @click="currentTab = index"
-        :class="{ active: currentTab === index }"
-        >
-      </div>
-    </div>
+    <Tabs 
+        :currentTab="currentTab" 
+        :collection="crew"
+        :collectionName="collectionName" 
+        :customClassTabs="ClassTabs"
+        :customClassBtns= "ClassBtns"
+        @update-tab="updateTab"
+      />
   </main>
 </template>
 
@@ -33,14 +32,18 @@
   import OneMember from '../components/OneMember.vue'
   import SectionTitle from '../components/SectionTitle.vue'
   import ScreenSlider from '../components/ScreenSlider.vue'
+  import Tabs from '../components/Tabs.vue'
 
-  const crew = reactive<Member[]>(data.crew);
+  const ClassTabs: string = "crew-tabs"
+  const ClassBtns: string = "crew-btns"
+  const collectionName: string = "crew"
+
+  const crew = reactive<Member[]>(data.crew)
   const currentTab = ref<number>(0);
 
   const currentMember = computed<Member>(() => {
     return crew[currentTab.value]
   })
-
   const updateTab = (newTab: number) => {
     currentTab.value = newTab
   }
@@ -57,45 +60,6 @@
     position: relative;
     @media (max-width: 1150px) {
       flex-direction: column-reverse;
-    }
-  }
-  .tabs {
-    position: absolute;
-    bottom: 8rem;
-    left: 20rem;
-    z-index: 2 !important;
-    height: 0rem;
-    background-color: red;
-    @media (max-width: 1150px) {
-      top: 38rem;
-      left: 0rem;
-      width: 100%;
-      text-align: center;
-    }
-    @media (max-width: 800px) {
-      bottom: 0;
-      top: 52rem;
-      position: absolute;
-    }
-    .button {
-      margin: 0.8rem;
-      height: 13px;
-      width: 13px;
-      background-color: #464850;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-      transition: background-color .8s ease;
-      @media (max-width: 800px) {
-        height: 18px;
-        width: 18px;
-      }
-      &.active {
-        background-color: var(--color-first);
-      }
-      &:hover {
-        background-color: #85868b;
-      }
     }
   }
 </style>
