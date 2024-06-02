@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, onMounted } from 'vue'
+import { onMounted } from 'vue'
 
 import backgroundHomeDesktop from '@/assets/home/background-home-desktop.jpg'
 import backgroundHomeTablet from '@/assets/home/background-home-tablet.jpg'

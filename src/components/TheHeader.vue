@@ -2,7 +2,7 @@
       <header>
             <hr>
                   <router-link to="/"  class="custom-router-link">
-                        <img class="logo"src="../assets/shared/logo.svg"/>
+                        <img class="logo"src="../assets/shared/logo.svg" alt="logo Space Tourism" aria-label="Return to home page"/>
                   </router-link>
             <nav>
                   <img class="menu-toggle open-menu" @click="toggleMenu" src="@/assets/shared/icon-hamburger.svg" alt="open menu"></img>

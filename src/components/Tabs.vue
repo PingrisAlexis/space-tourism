@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { Destination, Technology, Member } from '@/types';
-import { defineProps, defineEmits, ref, watch } from 'vue';
+import { defineEmits, ref, watch } from 'vue';
 
 const props = defineProps<{
   customClassTabs: string,
