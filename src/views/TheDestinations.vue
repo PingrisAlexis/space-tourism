@@ -11,6 +11,7 @@
           description: 'PICK YOUR DESTINATION'}"
       />
       <Tabs 
+        class="tabs-container"
         :currentTab="currentTab" 
         :collection="destinations"
         :collectionName="collectionName" 
@@ -47,3 +48,16 @@
     currentTab.value = newTab
   }
 </script>
+
+
+<style scoped lang="scss">
+  @import url('@/assets/main.scss');
+
+  main {
+    @media (min-width: 1800px) {
+      padding-top: 5%;
+    }
+  }
+
+</style>
+

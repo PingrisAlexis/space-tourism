@@ -16,6 +16,7 @@
         :technology="currentTechnology"
       />
       <Tabs 
+      class="tabs-container"
         :currentTab="currentTab" 
         :collection="technologies"
         :collectionName="collectionName" 
@@ -55,13 +56,20 @@
   @import url('@/assets/main.scss');
 
 main {
+  .tabs-container {
+    @media (min-width: 2600px) {
+      padding-left: 50rem;
+    }
+  }
   .technologies-container {
+    height: 80vh;
     padding-top: 10rem;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
+
     @media (max-width: 1150px) {
       flex-direction: column;
       justify-items: center;

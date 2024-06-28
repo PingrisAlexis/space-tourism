@@ -31,7 +31,11 @@
         top: 3rem;
         justify-content: space-between;
         align-items: center;
-        padding: 0rem 20rem;        
+        padding: 0rem 20rem;      
+         @media (min-width: 2600px) {
+            padding: 0rem 80rem;   
+
+        }     
         @media (max-width: 1150px) {
             width: 100vw;
             left: 0;

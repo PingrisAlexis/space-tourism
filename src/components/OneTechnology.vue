@@ -46,6 +46,9 @@
         padding-left: 25rem;
         position: relative;
         top: 15rem;
+        @media (min-width: 2600px) {
+            padding: 0rem 70rem  0rem 30rem;   
+        }
         @media (max-width: 1450px) {
             padding-left: 1rem;
         }

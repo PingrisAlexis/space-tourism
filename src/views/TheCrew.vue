@@ -15,6 +15,7 @@
       :member="currentMember"
     />
     <Tabs 
+        class="tabs-container"
         :currentTab="currentTab" 
         :collection="crew"
         :collectionName="collectionName" 
@@ -51,7 +52,11 @@
 
 <style scoped lang="scss">
 @import url('@/assets/main.scss');
-
+.tabs-container {
+    @media (min-width: 2600px) {
+      padding-left: 60rem;
+    }
+  }
   main {
     display: flex;
     flex-direction: column;
